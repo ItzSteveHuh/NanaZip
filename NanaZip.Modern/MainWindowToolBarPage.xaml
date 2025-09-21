@@ -10,7 +10,7 @@
   mc:Ignorable="d">
   <Grid>
     <Grid.RowDefinitions>
-      <RowDefinition Height="auto" />
+      <RowDefinition Height="80" />
       <RowDefinition Height="*" />
     </Grid.RowDefinitions>
     <Grid Grid.Row="0">
@@ -19,100 +19,118 @@
         <ColumnDefinition Width="*" />
         <ColumnDefinition Width="auto" />
       </Grid.ColumnDefinitions>
-      <CommandBar
+      <StackPanel
         Grid.Column="0"
+        Orientation="Horizontal"
         HorizontalAlignment="Left"
-        Background="Transparent"
-        DefaultLabelPosition="Collapsed"
-        IsDynamicOverflowEnabled="False"
-        IsOpen="False">
-        <AppBarButton
-          x:Name="AddButton"
-          Width="48"
-          AutomationProperties.Name="[Add]"
-          Click="AddButtonClick"
-          Icon="Add"
-          ToolTipService.ToolTip="[Add]" />
-        <AppBarButton
-          x:Name="ExtractButton"
-          Width="48"
-          AutomationProperties.Name="[Extract]"
-          Click="ExtractButtonClick"
-          Icon="MoveToFolder"
-          ToolTipService.ToolTip="[Extract]" />
-        <AppBarButton
-          x:Name="TestButton"
-          Width="48"
-          AutomationProperties.Name="[Test]"
-          Click="TestButtonClick"
-          Icon="Accept"
-          ToolTipService.ToolTip="[Test]" />
-        <AppBarSeparator />
-        <AppBarButton
-          x:Name="CopyButton"
-          Width="48"
-          AutomationProperties.Name="[Copy]"
-          Click="CopyButtonClick"
-          Icon="Copy"
-          ToolTipService.ToolTip="[Copy]" />
-        <AppBarButton
-          x:Name="MoveButton"
-          Width="48"
-          AutomationProperties.Name="[Move]"
-          Click="MoveButtonClick"
-          ToolTipService.ToolTip="[Move]">
-          <AppBarButton.Content>
-            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE8C6;" />
-          </AppBarButton.Content>
-        </AppBarButton>
-        <AppBarButton
-          x:Name="DeleteButton"
-          Width="48"
-          AutomationProperties.Name="[Delete]"
-          Click="DeleteButtonClick"
-          Icon="Delete"
-          ToolTipService.ToolTip="[Delete]" />
-        <AppBarButton
-          x:Name="InfoButton"
-          Width="48"
-          AutomationProperties.Name="[Info]"
-          Click="InfoButtonClick"
-          ToolTipService.ToolTip="[Info]">
-          <AppBarButton.Content>
-            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE946;" />
-          </AppBarButton.Content>
-        </AppBarButton>
-        <AppBarSeparator />
-        <AppBarButton
-          x:Name="OptionsButton"
-          Width="48"
-          AutomationProperties.Name="[Options]"
-          Click="OptionsButtonClick"
-          Icon="Setting"
-          ToolTipService.ToolTip="[Options]" />
-        <AppBarButton
-          x:Name="BenchmarkButton"
-          Width="48"
-          AutomationProperties.Name="[Benchmark]"
-          Click="BenchmarkButtonClick"
-          Icon="Play"
-          ToolTipService.ToolTip="[Benchmark]" />
-        <AppBarButton
-          x:Name="AboutButton"
-          Width="48"
-          AutomationProperties.Name="[About]"
-          Click="AboutButtonClick"
-          Icon="Help"
-          ToolTipService.ToolTip="[About]" />
-        <AppBarSeparator />
-        <AppBarButton
-          x:Uid="/NanaZip.Modern/MainWindowToolBarPage/MoreButton"
-          Width="48"
-          AutomationProperties.Name="[More]"
-          Click="MoreButtonClick"
-          Icon="More"
-          ToolTipService.ToolTip="[More]" />
-      </CommandBar>
+        Margin="0,0,0,8"
+        VerticalAlignment="Top">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,0,8,0">
+          <AppBarButton
+            x:Name="AddButton"
+            Width="48"
+            AutomationProperties.Name="[Add]"
+            Click="AddButtonClick"
+            Icon="Add"
+            ToolTipService.ToolTip="[Add]" Label="Add" />
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,0,8,0">
+          <AppBarButton
+            x:Name="ExtractButton"
+            Width="48"
+            AutomationProperties.Name="[Extract]"
+            Click="ExtractButtonClick"
+            Icon="MoveToFolder"
+            ToolTipService.ToolTip="[Extract]" Label="Extract" />
+         </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,0,8,0">
+          <AppBarButton
+            x:Name="TestButton"
+            Width="48"
+            AutomationProperties.Name="[Test]"
+            Click="TestButtonClick"
+            Icon="Accept"
+            ToolTipService.ToolTip="[Test]" Label="Test" />
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,0,8,0">
+          <AppBarButton
+            x:Name="CopyButton"
+            Width="48"
+            AutomationProperties.Name="[Copy]"
+            Click="CopyButtonClick"
+            Icon="Copy"
+            ToolTipService.ToolTip="[Copy]" Label="Copy" />
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,0,8,0">
+          <AppBarButton
+            x:Name="MoveButton"
+            Width="48"
+            AutomationProperties.Name="[Move]"
+            Click="MoveButtonClick"
+            ToolTipService.ToolTip="[Move]" Label="Move">
+            <AppBarButton.Content>
+              <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE8C6;" />
+            </AppBarButton.Content>
+          </AppBarButton>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,0,8,0">
+          <AppBarButton
+            x:Name="DeleteButton"
+            Width="48"
+            AutomationProperties.Name="[Delete]"
+            Click="DeleteButtonClick"
+            Icon="Delete"
+            ToolTipService.ToolTip="[Delete]" Label="Delete" />
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,0,8,0">
+          <AppBarButton
+            x:Name="InfoButton"
+            Width="48"
+            AutomationProperties.Name="[Info]"
+            Click="InfoButtonClick"
+            ToolTipService.ToolTip="[Info]" Label="Info">
+            <AppBarButton.Content>
+              <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE946;" />
+            </AppBarButton.Content>
+          </AppBarButton>
+          </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,0,8,0">
+          <AppBarButton
+            x:Name="OptionsButton"
+            Width="48"
+            AutomationProperties.Name="[Options]"
+            Click="OptionsButtonClick"
+            Icon="Setting"
+            ToolTipService.ToolTip="[Options]" Label="Options" />
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,0,8,0">
+          <AppBarButton
+            x:Name="BenchmarkButton"
+            Width="65"
+            AutomationProperties.Name="[Benchmark]"
+            Click="BenchmarkButtonClick"
+            Icon="Play"
+            ToolTipService.ToolTip="[Benchmark]" Label="Benchmark" />
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,0,8,0">
+          <AppBarButton
+            x:Name="AboutButton"
+            Width="48"
+            AutomationProperties.Name="[About]"
+            Click="AboutButtonClick"
+            Icon="Help"
+            ToolTipService.ToolTip="[About]" Label="About" />
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,0,8,0">
+          <AppBarButton
+            x:Uid="/NanaZip.Modern/MainWindowToolBarPage/MoreButton"
+            Width="48"
+            AutomationProperties.Name="[More]"
+            Click="MoreButtonClick"
+            Icon="More"
+            ToolTipService.ToolTip="[More]" Label="More" />
+        </StackPanel>
+      </StackPanel>
       <Button
         x:Name="SponsorButton"
         Grid.Column="2"

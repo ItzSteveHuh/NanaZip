@@ -166,7 +166,7 @@ HRESULT CApp::Create(HWND hwnd, const UString &mainPath, const UString &arcForma
   extern HMENU g_MoreMenu;
 
   UINT DpiValue = ::GetDpiForWindow(hwnd);
-  int ToolBarControlHeight = ::MulDiv(48, DpiValue, USER_DEFAULT_SCREEN_DPI);
+  int ToolBarControlHeight = ::MulDiv(80, DpiValue, USER_DEFAULT_SCREEN_DPI);
 
   RECT ClientRect = {};
   ::GetClientRect(hwnd, &ClientRect);

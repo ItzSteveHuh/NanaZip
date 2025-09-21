@@ -1158,7 +1158,7 @@ void CApp::MoveSubWindows()
       UINT DpiValue = ::GetDpiForWindow(hWnd);
 
       int MainWindowToolBarScaledHeight = ::MulDiv(
-          48,
+          80,
           DpiValue,
           USER_DEFAULT_SCREEN_DPI);
 
