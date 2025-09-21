@@ -17,10 +17,10 @@
     <MileWindowsHelpersNoCppWinRTHelpers>true</MileWindowsHelpersNoCppWinRTHelpers>
   </PropertyGroup>
   <Import Project="..\NanaZip.Project\NanaZip.Project.props" />
-  <Import Sdk="Mile.Project.Configurations" Version="1.0.1622" Project="Mile.Project.Platform.x64.props" />
-  <Import Sdk="Mile.Project.Configurations" Version="1.0.1622" Project="Mile.Project.Platform.ARM64.props" />
-  <Import Sdk="Mile.Project.Configurations" Version="1.0.1622" Project="Mile.Project.Cpp.Default.props" />
-  <Import Sdk="Mile.Project.Configurations" Version="1.0.1622" Project="Mile.Project.Cpp.props" />
+  <Import Sdk="Mile.Project.Configurations" Version="1.0.1768" Project="Mile.Project.Platform.x64.props" />
+  <Import Sdk="Mile.Project.Configurations" Version="1.0.1768" Project="Mile.Project.Platform.ARM64.props" />
+  <Import Sdk="Mile.Project.Configurations" Version="1.0.1768" Project="Mile.Project.Cpp.Default.props" />
+  <Import Sdk="Mile.Project.Configurations" Version="1.0.1768" Project="Mile.Project.Cpp.props" />
   <Import Condition="'$(Platform)' == 'x64'" Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
   <Import Project="..\NanaZip.Shared\NanaZip.Shared.Mitigations.props" />
   <ItemDefinitionGroup>
@@ -59,7 +59,9 @@
   <ItemGroup>
     <None Include="SevenZip\ASM\x86\7zAsm.asm" />
     <None Include="SevenZip\ASM\x86\7zCrcOpt.asm" />
+    <None Include="SevenZip\ASM\x86\Sort.asm" />
     <None Include="SevenZip\C\7zCrcOpt.c" />
+    <None Include="SevenZip\C\Sort.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SevenZip\CPP\7zip\Archive\Common\ItemNameUtils.h" />
@@ -268,7 +270,6 @@
     <ClCompile Include="SevenZip\C\Alloc.c" />
     <ClCompile Include="SevenZip\C\CpuArch.c" />
     <ClCompile Include="SevenZip\C\DllSecur.c" />
-    <ClCompile Include="SevenZip\C\Sort.c" />
     <ClCompile Include="SevenZip\C\Threads.c" />
   </ItemGroup>
   <Target Name="NanaZipCoreConsoleCrcHardwareAccelerationBuildAssemblySource" BeforeTargets="_MASM">
@@ -283,11 +284,23 @@
       </ClCompile>
     </ItemGroup>
   </Target>
+  <Target Name="NanaZipCoreSortHardwareAccelerationBuildAssemblySource" BeforeTargets="_MASM">
+    <ItemGroup Condition="'$(Platform)' == 'x64'">
+      <MASM Include="SevenZip\ASM\x86\Sort.asm" />
+    </ItemGroup>
+  </Target>
+  <Target Name="NanaZipCoreSortHardwareAccelerationBuildCSource" BeforeTargets="BeforeClCompile">
+    <ItemGroup Condition="'$(Platform)' != 'x64'">
+      <ClCompile Include="SevenZip\C\Sort.c">
+        <Optimization Condition="'$(Configuration)' == 'Release'">MaxSpeed</Optimization>
+      </ClCompile>
+    </ItemGroup>
+  </Target>
   <ItemGroup>
     <PackageReference Include="Mile.Windows.UniCrt">
       <Version>1.2.410</Version>
     </PackageReference>
   </ItemGroup>
-  <Import Sdk="Mile.Project.Configurations" Version="1.0.1622" Project="Mile.Project.Cpp.targets" />
+  <Import Sdk="Mile.Project.Configurations" Version="1.0.1768" Project="Mile.Project.Cpp.targets" />
   <Import Condition="'$(Platform)' == 'x64'" Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
 </Project>
